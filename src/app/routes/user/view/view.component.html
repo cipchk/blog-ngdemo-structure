@@ -1,0 +1,14 @@
+<h1>User View Content</h1>
+<h2>Template-driven Form</h2>
+<form #f="ngForm" (ngSubmit)="onTemplateSave()">
+    <p>Name:<input type="text" [(ngModel)]="user.name" name="name" required maxlength="20" /></p>
+    <p>Pwd:<input type="password" [(ngModel)]="user.pwd" name="pwd" required /></p>
+    <p><button type="submit" [disabled]="!f.valid">Submit</button></p>
+</form>
+
+<h2>Model-driven Form</h2>
+<form [formGroup]="form" (ngSubmit)="onModelSave()">
+    <p>Name:<input type="text" formControlName="name" id="name" /></p>
+    <p>Pwd:<input type="password" formControlName="pwd" id="pwd" /></p>
+    <p><button type="submit" id="submit" [disabled]="!form.valid">Submit</button></p>
+</form>
